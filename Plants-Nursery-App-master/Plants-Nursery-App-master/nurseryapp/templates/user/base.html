@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <title>SignUp</title>
+</head>
+<body bgcolor="whitesmoke">
+  
+  <nav class="white">
+    <div class="nav-wrapper">
+      <a href="{% url 'nurseryapp:home' %}"><img src="../../../media/logo/plant.svg" class="brand-logo" height="55px" width="60px"></a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a class="black-text" href="{% url 'nurseryapp:home' %}">Home</a></li>
+        <li><a class="black-text" href="{% url 'nurseryapp:home' %}/#shop">Shop</a></li>
+        {% if user.is_authenticated %}
+        <li><a class="black-text" href="{% url 'nurseryapp:logout' %}">LogOut</a></li>
+        {% else %}
+        <li><a class="black-text" href="{% url 'nurseryapp:login_page' %}">LogIn</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </nav>
+
+  {% block content %}
+  {% endblock %}
+
+  <footer class="page-footer light-green darken-1" style="bottom: 0px;">
+    <div class="container">
+      <div class="row">
+        <div class="col l6 s12">
+          <h5 class="black-text">Nursery</h5>
+          <p class="grey-text text-darken-4">This website is for the showcase purpose only.</p>
+        </div>
+        <div class="col l4 offset-l2 s12">
+          <h5 class="black-text">Links</h5>
+          <ul>
+            <li><a class="grey-text text-darken-4" href="{% url 'nurseryapp:home' %}">Home</a></li>
+            <li><a class="grey-text text-darken-4" href="{% url 'nurseryapp:signup' %}">SignUp</a></li>
+            <li><a class="grey-text text-darken-4" href="{% url 'nurseryapp:login_page' %}">LogIn</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      © 2020 Nursery 
+      <a  href="https://www.github.com/shreyashsrivastava" class="grey-text text-lighten-4 right">Github Link</a>
+
+      </div>
+    </div>
+  </footer>
+      
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
